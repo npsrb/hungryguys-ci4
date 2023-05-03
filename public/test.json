@@ -1,0 +1,41 @@
+{
+  "error": {
+    "statusCode": 200,
+    "message": "Your card has been declined. Please try a different payment method.",
+    "name": "RISK_DENIED",
+    "ppRequestId": "a51bb078-b663-4ae4-b559-6f69ce48d8e9",
+    "subTitle": "",
+    "errorName": "RISK_DENIED"
+  },
+  "sys": {
+    "links": {
+      "jsBaseUrl": "https://www.paypalobjects.com/web/res/33f/ff3d17fcd5ce2578f9108e2c198f9/js",
+      "cssBaseUrl": "https://www.paypalobjects.com/web/res/33f/ff3d17fcd5ce2578f9108e2c198f9/css",
+      "templateBaseUrl": "https://www.paypalobjects.com/web/res/33f/ff3d17fcd5ce2578f9108e2c198f9/templates/ID/en",
+      "resourceBaseUrl": "https://www.paypalobjects.com/web/res/33f/ff3d17fcd5ce2578f9108e2c198f9",
+      "originalTemplateBaseUrl": "https://www.paypalobjects.com/web/res/33f/ff3d17fcd5ce2578f9108e2c198f9/templates"
+    },
+    "pageInfo": {
+      "date": "May 1, 2023 07:08:12 -07:00",
+      "hostName": "rZJvnqaaQhLn/nmWT8cSUjOx898qoYZ0yiLF7K13C7CZ3vKxtcxYXQ",
+      "rlogId": "rZJvnqaaQhLn%2FnmWT8cSUpAWLPmHFa%2BQ6V%2FL8XVK%2F0%2B%2BYfD%2FbPpWqE2Tf0c15%2FPl9FuGbKbJD5Q_187d7a47897",
+      "script": "node",
+      "debug": null
+    },
+    "locality": {
+      "timezone": { "determiner": "viaUserProfile", "value": "Asia/Jakarta" },
+      "country": "ID",
+      "locale": "en_US",
+      "language": "en",
+      "directionality": "ltr"
+    },
+    "tracking": {
+      "fpti": {
+        "name": "pta",
+        "jsURL": "https://www.paypalobjects.com",
+        "serverURL": "https://t.paypal.com/ts",
+        "dataString": "pgrp=moneynodeweb%2F.dust&page=moneynodeweb%2F.dust&pgst=1682950092951&calc=f87804431ffca&nsid=JlksXrhqjxKcCVjw5rRAeFDZz7gN0ldZ&rsta=en_US&pgtf=Nodejs&env=live&s=ci&ccpg=ID&csci=977c0587345644c88d02480e29e3ea0c&comp=moneynodeweb&tsrce=smarthelpnodeweb&cu=1&gacook=1288768974.1682601907&ef_policy=global&c_prefs=T%3D1%2CP%3D1%2CF%3D1%2Ctype%3Dinitial&cust=APYLD4ADMV2M4&party_id=APYLD4ADMV2M4&acnt=premier&aver=unverified&rstr=unrestricted&cnac=ID&xe=100865%2C101632%2C107288%2C104236%2C101036%2C104495%2C101815%2C106430%2C103232%2C101065%2C100170%2C101965%2C100175%2C104785%2C104915%2C101849%2C106202%2C104798%2C101615%2C105838%2C101236%2C100091%2C105727&xt=125616%2C108186%2C133927%2C118012%2C122890%2C119572%2C106278%2C129478%2C112816%2C103106%2C100413%2C107028%2C100423%2C120922%2C121628%2C106446%2C128302%2C120981%2C105653%2C126360%2C103967%2C100217%2C126149"
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+CRITICAL - 2023-04-29 13:48:03 --> Invalid file: "Client Here.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Client Here.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Client Here', [], true)
+ 3 APPPATH\Controllers\Client.php(9): view('Client Here')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Client->index()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hungryguys\\public\\index.php')
+CRITICAL - 2023-04-29 13:48:58 --> Invalid file: "Client Here.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Client Here.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Client Here', [], true)
+ 3 APPPATH\Controllers\Client.php(9): view('Client Here')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Client->index()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hungryguys\\public\\index.php')
+CRITICAL - 2023-04-29 13:49:14 --> Invalid file: "Client Here.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Client Here.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Client Here', [], true)
+ 3 APPPATH\Controllers\Client.php(9): view('Client Here')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Client->index()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hungryguys\\public\\index.php')
+CRITICAL - 2023-04-29 13:49:25 --> Invalid file: "Client Here.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Client Here.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Client Here', [], true)
+ 3 APPPATH\Controllers\Client.php(9): view('Client Here')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Client->index()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hungryguys\\public\\index.php')
+CRITICAL - 2023-04-29 14:02:07 --> Invalid file: "costumer_component/layout.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('costumer_component/layout.php')
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('costumer_component/layout', [], true)
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Client/ClientViews', [], true)
+ 4 APPPATH\Controllers\Client.php(9): view('Client/ClientViews')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Client->index()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hungryguys\\public\\index.php')
+CRITICAL - 2023-04-29 14:02:20 --> Invalid file: "costumer_component/layout.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('costumer_component/layout.php')
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('costumer_component/layout', [], true)
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Client/ClientViews', [], true)
+ 4 APPPATH\Controllers\Client.php(9): view('Client/ClientViews')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Client->index()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hungryguys\\public\\index.php')
+CRITICAL - 2023-04-29 14:07:41 --> Invalid file: "costumer_component/layout.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('costumer_component/layout.php')
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('costumer_component/layout', [], true)
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Client/ClientViews', [], true)
+ 4 APPPATH\Controllers\Client.php(9): view('Client/ClientViews')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Client->index()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hungryguys\\public\\index.php')
+CRITICAL - 2023-04-29 14:07:44 --> Invalid file: "costumer_component/layout.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('costumer_component/layout.php')
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('costumer_component/layout', [], true)
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Client/ClientViews', [], true)
+ 4 APPPATH\Controllers\Client.php(9): view('Client/ClientViews')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Client->index()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hungryguys\\public\\index.php')
+CRITICAL - 2023-04-29 14:07:55 --> Invalid file: "costumer_component/layout.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('costumer_component/layout.php')
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('costumer_component/layout', [], true)
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Client/ClientViews', [], true)
+ 4 APPPATH\Controllers\Client.php(9): view('Client/ClientViews')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Client->index()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Client))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hungryguys\\public\\index.php')
+CRITICAL - 2023-04-29 14:45:58 --> syntax error, unexpected token "}", expecting ";"
+in APPPATH\Controllers\Admin\Auth.php on line 12.
+ 1 SYSTEMPATH\Router\Router.php(507): CodeIgniter\Router\AutoRouter->getRoute('admin/auth/login')
+ 2 SYSTEMPATH\Router\Router.php(206): CodeIgniter\Router\Router->autoRoute('admin/auth/login')
+ 3 SYSTEMPATH\CodeIgniter.php(815): CodeIgniter\Router\Router->handle('admin/auth/login')
+ 4 SYSTEMPATH\CodeIgniter.php(449): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\hungryguys\\public\\index.php')
