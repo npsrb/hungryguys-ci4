@@ -2,7 +2,7 @@
 
 <?= $this->section("dashboard") ?>
 <div class="card-body">
-    <table id="data_table" class="table table-bordered table-striped">
+    <table id="" class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>Category</th>

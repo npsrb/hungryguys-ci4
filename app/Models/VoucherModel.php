@@ -11,7 +11,7 @@ class VoucherModel extends Model
 	protected $primaryKey = 'id_voucher';
 	protected $returnType = 'object';
 	protected $useSoftDeletes = false;
-	protected $allowedFields = ['amount', 'category', 'stock', 'deskripsi'];
+	protected $allowedFields = ['amount', 'category', 'status', 'deskripsi'];
 	protected $useTimestamps = false;
 	protected $createdField  = 'created_at';
 	protected $updatedField  = 'updated_at';

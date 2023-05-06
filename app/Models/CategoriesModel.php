@@ -1,5 +1,4 @@
 <?php
-// ADEL CODEIGNITER 4 CRUD GENERATOR
 
 namespace App\Models;
 
@@ -12,7 +11,7 @@ class CategoriesModel extends Model
 	protected $primaryKey = 'id_category';
 	protected $returnType = 'object';
 	protected $useSoftDeletes = false;
-	protected $allowedFields = ['category', 'desc'];
+	protected $allowedFields = ['picture', 'category', 'desc', 'option_user_id', 'option_server', 'option_username'];
 	protected $useTimestamps = false;
 	protected $createdField  = 'created_at';
 	protected $updatedField  = 'updated_at';

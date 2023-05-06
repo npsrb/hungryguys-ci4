@@ -11,7 +11,7 @@ class Voucher extends BaseController
 
 	protected $voucherModel;
 	protected $validation;
-
+	protected $categoriesModel;
 	public function __construct()
 	{
 		$this->voucherModel = new VoucherModel();
@@ -25,18 +25,17 @@ class Voucher extends BaseController
 		$result = $this->voucherModel->select()->findAll();
 
 		foreach ($result as $key => $value) {
-
 			$ops = '<div class="btn-group">';
-			$ops .= '<button type="button" class=" btn btn-sm dropdown-toggle btn-primary" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Option</button>';
+			$ops .= '<button type="button" class=" btn btn-sm dropdown-toggle btn-danger" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Option</button>';
 			$ops .= '<div class="dropdown-menu">';
-			$ops .= '<a class="dropdown-item text-info" onClick="save(' . $value->id_voucher . ')">' .  lang("App.edit")  . '</a>';
-			$ops .= '<a class="dropdown-item text-danger" onClick="remove(' . $value->id_voucher . ')"><i class="fa-solid fa-trash"></i>   ' .  lang("App.delete")  . '</a>';
+			$ops .= '<a class="dropdown-item text-purple" onClick="save(' . $value->id_voucher . ')"><i class="fa-solid fa fa-edit"></i>' .  lang("App.edit")  . '</a>';
+			$ops .= '<a class="dropdown-item text-danger" onClick="remove(' . $value->id_voucher . ')"><i class="fa-solid fa fa-trash"></i>   ' .  lang("App.delete")  . '</a>';
 			$ops .= '</div>';
 
 			$data['data'][$key] = array(
-				$value->amount,
+				"Rp. " . number_format($value->amount),
 				$value->category,
-				$value->stock,
+				$value->status == 1 ? "Active" : "Off",
 				$value->deskripsi,
 				$ops
 			);
@@ -68,34 +67,17 @@ class Voucher extends BaseController
 		$fields['id_voucher'] = $this->request->getPost('id_voucher');
 		$fields['amount'] = $this->request->getPost('amount');
 		$fields['category'] = $this->request->getPost('category');
-		$fields['stock'] = $this->request->getPost('stock');
 		$fields['deskripsi'] = $this->request->getPost('deskripsi');
 
 
-		$this->validation->setRules([
-			'amount' => ['label' => 'Amount', 'rules' => 'required|numeric|min_length[0]|max_length[36]'],
-			'category' => ['label' => 'Category', 'rules' => 'required|numeric|min_length[0]|max_length[36]'],
-			'stock' => ['label' => 'Stock', 'rules' => 'required|numeric|min_length[0]|max_length[36]'],
-			'deskripsi' => ['label' => 'Deskripsi', 'rules' => 'required|min_length[0]|max_length[100]'],
+		if ($this->voucherModel->insert($fields)) {
 
-		]);
-
-		if ($this->validation->run($fields) == FALSE) {
-
-			$response['success'] = false;
-			$response['messages'] = $this->validation->getErrors(); //Show Error in Input Form
-
+			$response['success'] = true;
+			$response['messages'] = lang("App.insert-success");
 		} else {
 
-			if ($this->voucherModel->insert($fields)) {
-
-				$response['success'] = true;
-				$response['messages'] = lang("App.insert-success");
-			} else {
-
-				$response['success'] = false;
-				$response['messages'] = lang("App.insert-error");
-			}
+			$response['success'] = false;
+			$response['messages'] = lang("App.insert-error");
 		}
 
 		return $this->response->setJSON($response);
@@ -108,34 +90,19 @@ class Voucher extends BaseController
 		$fields['id_voucher'] = $this->request->getPost('id_voucher');
 		$fields['amount'] = $this->request->getPost('amount');
 		$fields['category'] = $this->request->getPost('category');
-		$fields['stock'] = $this->request->getPost('stock');
+		$fields['status'] = $this->request->getPost('status') == 'on' ? '1' : '0';
 		$fields['deskripsi'] = $this->request->getPost('deskripsi');
 
 
-		$this->validation->setRules([
-			'amount' => ['label' => 'Amount', 'rules' => 'required|numeric|min_length[0]|max_length[36]'],
-			'category' => ['label' => 'Category', 'rules' => 'required|numeric|min_length[0]|max_length[36]'],
-			'stock' => ['label' => 'Stock', 'rules' => 'required|numeric|min_length[0]|max_length[36]'],
-			'deskripsi' => ['label' => 'Deskripsi', 'rules' => 'required|min_length[0]|max_length[100]'],
 
-		]);
+		if ($this->voucherModel->update($fields['id_voucher'], $fields)) {
 
-		if ($this->validation->run($fields) == FALSE) {
-
-			$response['success'] = false;
-			$response['messages'] = $this->validation->getErrors(); //Show Error in Input Form
-
+			$response['success'] = true;
+			$response['messages'] = lang("App.update-success");
 		} else {
 
-			if ($this->voucherModel->update($fields['id_voucher'], $fields)) {
-
-				$response['success'] = true;
-				$response['messages'] = lang("App.update-success");
-			} else {
-
-				$response['success'] = false;
-				$response['messages'] = lang("App.update-error");
-			}
+			$response['success'] = false;
+			$response['messages'] = lang("App.update-error");
 		}
 
 		return $this->response->setJSON($response);
@@ -145,7 +112,7 @@ class Voucher extends BaseController
 	{
 		$response = array();
 
-		$id = $this->request->getPost('id_voucher');
+		$id = $this->request->getPost('params');
 
 		if (!$this->validation->check($id, 'required|numeric')) {
 

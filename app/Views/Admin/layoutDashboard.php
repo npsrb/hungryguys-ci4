@@ -24,6 +24,12 @@
         box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
     }
 
+    .form-check-input {
+        display: inline-block;
+        width: 80px !important;
+        margin-right: 5px;
+    }
+
     .b-example-vr {
         flex-shrink: 0;
         width: 1.5rem;
@@ -111,12 +117,12 @@
                             Dashboard
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="<?= base_url('admin/categories') ?>">
                             <span data-feather="file" class="align-text-bottom"></span>
                             Categories
                         </a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="<?= base_url('admin/voucher') ?>">
                             <span data-feather="shopping-cart" class="align-text-bottom"></span>
@@ -145,54 +151,40 @@
                     <h5><?= $page; ?></h5>
                 </div>
                 <div class="col-lg-6">
-                    <button type="button" class="btn btn-dark btn-sm border" onclick="save()" title="<?= lang("App.new") ?>" style="float: right;"><i class="fa fa-plus"></i> <?= lang('App.new') ?></button>
+                    <button type="button" class="btn btn-danger btn-sm border" onclick="save()" title="New Category" style="float: right;"><i class="fa fa-plus"></i> New Data <?= ucfirst($controller); ?></button>
                 </div>
+
             </div>
             <?= $this->renderSection('dashboard'); ?>
         </main>
     </div>
 </div>
 <?= $this->endSection(); ?>
-
 <?= $this->section('script'); ?>
-
-<!-- required script auto CRUD -->
-<script src="<?= base_url('assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') ?>"></script>
-<script src="<?= base_url('assets/js/bootstrap4-toggle.min.js') ?>"></script>
-<script src="<?= base_url('assets/js/jquery.validate.min.js') ?>"></script>
-<script src="<?= base_url("assets/plugins/datatables/DataTables-1.11.3/js/jquery.dataTables.min.js"); ?>" type="text/javascript"></script>
-<script src="<?= base_url("assets/plugins/datatables/DataTables-1.11.3/js/dataTables.bootstrap5.min.js"); ?>" type="text/javascript"></script>
-<script src="<?= base_url("assets/plugins/datatables/Buttons-2.0.1/js/dataTables.buttons.min.js"); ?>" type="text/javascript"></script>
-<script src="<?= base_url("assets/plugins/datatables/JSZip-2.5.0/jszip.min.js"); ?>" type="text/javascript"></script>
-<script src="<?= base_url("assets/plugins/datatables/Buttons-2.0.1/js/buttons.print.min.js"); ?>" type="text/javascript"></script>
-<script src="<?= base_url("assets/plugins/datatables/Buttons-2.0.1/js/buttons.html5.min.js"); ?>" type="text/javascript"></script>
-<script src="<?= base_url("assets/plugins/datatables/Responsive-2.2.9/js/dataTables.responsive.min.js"); ?>" type="text/javascript"></script>
-<script src="<?= base_url("assets/plugins/datatables/Responsive-2.2.9/js/responsive.bootstrap5.min.js"); ?>" type="text/javascript"></script>
-<!-- end required script -->
 
 <script>
     // dataTables
     $(function() {
-        var table = $('#data_table').removeAttr('width').DataTable({
+        var table = $('#data_table').DataTable({
             "paging": true,
-            "lengthChange": false,
+            "lengthChange": true,
             "searching": true,
             "ordering": true,
             "info": true,
             "autoWidth": false,
-            "scrollY": '45vh',
-            "scrollX": true,
             "scrollCollapse": false,
-            "responsive": false,
-
+            "responsive": true,
             "ajax": {
-                "url": '<?php echo base_url($controller . "/getAll") ?>',
+                "url": '<?php echo base_url($controller . "/getall") ?>',
                 "type": "POST",
                 "dataType": "json",
-                async: "true"
+                "async": "true"
             }
         });
     });
+
+
+
     var urlController = '';
     var submitText = '';
 
@@ -222,7 +214,7 @@
                     url: '<?php echo base_url($controller . "/remove") ?>',
                     type: 'post',
                     data: {
-                        id_category: params
+                        params: params
                     },
                     dataType: 'json',
                     success: function(response) {

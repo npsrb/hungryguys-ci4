@@ -132,6 +132,26 @@
         height: 34px;
     }
 
+    textarea:focus,
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="datetime"]:focus,
+    input[type="datetime-local"]:focus,
+    input[type="date"]:focus,
+    input[type="month"]:focus,
+    input[type="time"]:focus,
+    input[type="week"]:focus,
+    input[type="number"]:focus,
+    input[type="email"]:focus,
+    input[type="url"]:focus,
+    input[type="search"]:focus,
+    input[type="tel"]:focus,
+    input[type="color"]:focus,
+    .uneditable-input:focus {
+        border-color: rgba(126, 239, 104, 0.8);
+        box-shadow: 0 1px 1px rgb(255, 0, 0) inset, 0 0 8px rgb(255, 0, 0);
+        outline: 0 none;
+    }
 
 
     @keyframes rotating {
@@ -170,10 +190,9 @@
 
     <div class="form-signin w-100 m-auto">
         <form action="<?= base_url('admin/handleLogin') ?>" method="post" enctype="multipart/form-data" id="formLogin">
-            <img class="mb-4" src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-            <h1 class="h3 mb-3 fw-normal">Admin Login Form</h1>
+            <img class="mb-4" src="https://www.freeiconspng.com/thumbs/gaming-logo/gamer-logo-png-gaming-video-man-character-2.png" alt="">
             <div class="form-floating">
-                <input type="username" class="form-control mb-3" name="username" required>
+                <input type="text" class="form-control mb-3" name="username" required>
                 <label>Username</label>
             </div>
             <div class="form-floating">
@@ -186,7 +205,7 @@
                     <input type="checkbox" value="remember-me"> Remember me
                 </label>
             </div>
-            <button class="w-100 btn btn-lg btn-primary" id="loginButton">Sign in</button>
+            <button class="w-100 btn btn-lg btn-danger" id="loginButton">Sign in</button>
             <p class="mt-5 mb-3 text-body-secondary">&copy; <?php echo date("Y"); ?></p>
         </form>
     </div>

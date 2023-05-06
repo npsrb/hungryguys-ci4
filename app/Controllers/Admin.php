@@ -2,13 +2,19 @@
 
 namespace App\Controllers;
 
+use App\Models\CategoriesModel;
+use App\Models\VoucherModel;
 
 class Admin extends BaseController
 {
     protected $db;
+    protected $voucherModel;
+    protected $categoriesModel;
     public function __construct()
     {
         $this->db = \Config\Database::connect();
+        $this->voucherModel = new VoucherModel();
+        $this->categoriesModel = new CategoriesModel();
     }
     public function dashboard()
     {
@@ -18,7 +24,10 @@ class Admin extends BaseController
             $data = [
                 'title' => "Dashboard",
                 'page' => "Dashboard",
-                'controller' => "dashboard"
+                'controller' => "Categories",
+                'categorytot' => '20',
+                'transaksitot' => '20',
+                'producttot' => '20'
             ];
             return view('Admin/Dashboard', $data);
         }
@@ -71,6 +80,7 @@ class Admin extends BaseController
     {
         $data = [
             'controller' => "voucher",
+            'category' => $this->categoriesModel->findAll(),
             'page' => "Voucher Page",
             'title' => "Voucher Page"
         ];
@@ -79,9 +89,10 @@ class Admin extends BaseController
     public function categories()
     {
         $data = [
-            'controller' => "Categories",
-            'page' => "Categories",
-            'title' => "Categories Page"
+            'controller' => "categories",
+            'page' => "Game Categories",
+            'title' => "Game Categories",
+
         ];
         return view('admin/categories', $data);
     }
