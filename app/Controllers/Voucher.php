@@ -3,18 +3,20 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-
+use App\Models\CategoriesModel;
 use App\Models\VoucherModel;
 
 class Voucher extends BaseController
 {
 
 	protected $voucherModel;
+	protected $cate;
 	protected $validation;
 	protected $categoriesModel;
 	public function __construct()
 	{
 		$this->voucherModel = new VoucherModel();
+		$this->categoriesModel = new CategoriesModel();
 		$this->validation =  \Config\Services::validation();
 	}
 
@@ -34,7 +36,7 @@ class Voucher extends BaseController
 
 			$data['data'][$key] = array(
 				"Rp. " . number_format($value->amount),
-				$value->category,
+				$this->categoriesModel->find($value->category)->category,
 				$value->status == 1 ? "Active" : "Off",
 				$value->deskripsi,
 				$ops

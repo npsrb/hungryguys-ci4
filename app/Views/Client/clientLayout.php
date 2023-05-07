@@ -151,66 +151,16 @@
 <?= $this->endSection(); ?>
 <?= $this->section('content'); ?>
 
+<?= $this->include('components/flashMessage'); ?>
+
 <body>
-    <?= $this->include("components/toggle"); ?>
     <div class="container p-3">
-        <header>
-            <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
-                <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
-                    <span class="fs-4 fw-bold">Hungry Guys Store</span>
-                </a>
-
-                <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-                    <a class="me-3 py-2 link-body-emphasis text-decoration-none text-primary" href="#">Home</a>
-                    <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="https://wa.me/081259188983?text=generate">Contact</a>
-                    <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="https://wa.me/081259188983?text=generate">About Us</a>
-                </nav>
-            </div>
-
-            <div class="pricing-header mx-auto text-center border-bottom">
-                <h1 class="display-4 fw-normal ">Your Game Voucer Partner</h1>
-                <p class="fs-5 text-body-secondary">Choose your game here</p>
-            </div>
+        <header class="border-bottom text-center mb-5">
+            <h1 class="fw-bold mb-3">Hungry Guys Store</h1>
         </header>
+        <?= $this->include("components/toggle"); ?>
         <?= $this->renderSection('clientContent'); ?>
     </div>
 </body>
 
-<?= $this->endSection(); ?>
-<?= $this->section('script'); ?>
-<script>
-    $(document).ready(function() {
-        const multipleItemCarousel = document.querySelector("#carouselExampleControls");
-
-        if (window.matchMedia("(min-width:576px)").matches) {
-            const carousel = new bootstrap.Carousel(multipleItemCarousel, {
-                interval: false
-            });
-
-            var carouselWidth = $(".carousel-inner")[0].scrollWidth;
-            var cardWidth = $(".carousel-item").width();
-
-            var scrollPosition = 0;
-
-            $(".carousel-control-next").on("click", function() {
-                if (scrollPosition < carouselWidth - cardWidth * 4) {
-                    scrollPosition = scrollPosition + cardWidth;
-                    $(".carousel-inner").animate({
-                        scrollLeft: scrollPosition
-                    }, 600);
-                }
-            });
-            $(".carousel-control-prev").on("click", function() {
-                if (scrollPosition > 0) {
-                    scrollPosition = scrollPosition - cardWidth;
-                    $(".carousel-inner").animate({
-                        scrollLeft: scrollPosition
-                    }, 600);
-                }
-            });
-        } else {
-            $(multipleItemCarousel).addClass("slide");
-        }
-    });
-</script>
 <?= $this->endSection(); ?>

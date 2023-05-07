@@ -16,6 +16,7 @@ class Client extends BaseController
     }
     public function index()
     {
+        session()->set('game', '');
         $data = [
             'title' => "Home",
             'categories' => $this->categoriesModel->findAll(),
@@ -26,8 +27,8 @@ class Client extends BaseController
     public function setSession()
     {
         if ($this->request->getPost('id')) {
-            $session = session();
-            $session->set('test', 'Hello, session!');
+            $id = $this->request->getPost('id');
+            session()->set('game', $id);
             return redirect()->to(site_url('client/purchase'));
         } else {
             throw new \CodeIgniter\Exceptions\PageNotFoundException();
@@ -35,11 +36,21 @@ class Client extends BaseController
     }
     public function purchase()
     {
-        $data = [
-            'title' => "Home",
-            'categories' => $this->categoriesModel->findAll(),
-            'voucher' => $this->voucherModel->findAll(),
-        ];
-        return view('Client/Purchase', $data);
+        if (session()->game == NULL | session()->game == "") {
+            return redirect()->to(base_url());
+        } else {
+            $voucer = $this->voucherModel->where('category', session()->game)->findAll();
+            if (count($voucer) < 1) {
+                session()->setFlashdata('errors', "No Voucher Found");
+                return redirect()->to(base_url());
+            } else {
+                $data = [
+                    'title' => "Home",
+                    'category' => $this->categoriesModel->find(session()->game),
+                    'voucer' => $voucer,
+                ];
+                return view('Client/Purchase', $data);
+            }
+        }
     }
 }
