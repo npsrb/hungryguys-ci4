@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2023 at 04:53 PM
+-- Generation Time: May 13, 2023 at 06:38 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -48,23 +48,37 @@ INSERT INTO `admin` (`username`, `password`) VALUES
 CREATE TABLE `categories` (
   `id_category` int(11) NOT NULL,
   `category` varchar(36) NOT NULL,
-  `desc` varchar(100) NOT NULL
+  `desc` varchar(100) NOT NULL,
+  `option_user_id` tinyint(1) DEFAULT NULL,
+  `option_server` tinyint(1) DEFAULT NULL,
+  `option_username` tinyint(1) DEFAULT NULL,
+  `picture` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id_category`, `category`, `desc`) VALUES
-(6, 'asdasdasdasd', 'asdasdasd'),
-(7, 'asdasdasd', 'asdasdasd'),
-(8, 'asdasdasd', 'asdasdasd'),
-(9, 'asdasdasd', 'asdasdasdas'),
-(10, 'asdasdasd', 'asdasdasdasd'),
-(11, 'asdasdas', 'dasdasdasd'),
-(12, 'asdasdasd', 'asdasdasdasds'),
-(14, 'asdasdsad', 'asdasdasd'),
-(15, 'testing', 'asdsa');
+INSERT INTO `categories` (`id_category`, `category`, `desc`, `option_user_id`, `option_server`, `option_username`, `picture`) VALUES
+(37, 'PUBG', 'test', 1, 1, 0, '1683516427_58dd8d0a77e4339ab084.jpg'),
+(38, 'Valorant', 'test', 1, 0, 0, '1683518808_aa472479bfd5aeadd4dd.png'),
+(39, 'Mobile Legends', '-', 1, 1, 0, '1683561769_5a1c2d3f3fac1a910a1a.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transaction`
+--
+
+CREATE TABLE `transaction` (
+  `id_transaction` int(11) NOT NULL,
+  `id_transaction_voucer` int(11) NOT NULL,
+  `email` varchar(36) NOT NULL,
+  `server_id` varchar(36) NOT NULL,
+  `user_id` varchar(36) NOT NULL,
+  `username` varchar(36) NOT NULL,
+  `amount` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -76,18 +90,17 @@ CREATE TABLE `voucher` (
   `id_voucher` int(11) NOT NULL,
   `amount` int(11) NOT NULL,
   `category` int(36) NOT NULL,
-  `deskripsi` varchar(100) NOT NULL
+  `deskripsi` varchar(100) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `voucher`
 --
 
-INSERT INTO `voucher` (`id_voucher`, `amount`, `category`, `deskripsi`) VALUES
-(1, 50, 1, 'test'),
-(2, 50, 1, 'test'),
-(3, 50, 1, 'test'),
-(4, 50, 1, 'test');
+INSERT INTO `voucher` (`id_voucher`, `amount`, `category`, `deskripsi`, `status`) VALUES
+(18, 200000, 39, '-', 1),
+(19, 2000000, 39, '-', 1);
 
 --
 -- Indexes for dumped tables
@@ -98,6 +111,12 @@ INSERT INTO `voucher` (`id_voucher`, `amount`, `category`, `deskripsi`) VALUES
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id_category`);
+
+--
+-- Indexes for table `transaction`
+--
+ALTER TABLE `transaction`
+  ADD PRIMARY KEY (`id_transaction`);
 
 --
 -- Indexes for table `voucher`
@@ -113,13 +132,19 @@ ALTER TABLE `voucher`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
+--
+-- AUTO_INCREMENT for table `transaction`
+--
+ALTER TABLE `transaction`
+  MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `voucher`
 --
 ALTER TABLE `voucher`
-  MODIFY `id_voucher` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_voucher` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
