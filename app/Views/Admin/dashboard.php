@@ -246,7 +246,7 @@
 </div>
 
 <div id="data-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md rounded">
         <div class="modal-content">
             <div class="text-center bg-info p-3" id="model-header">
                 <h4 class="modal-title text-white" id="info-header-modalLabel"></h4>
@@ -259,8 +259,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group mb-3">
-                                <label for="category" class="col-form-label"> Category: <span class="text-danger">*</span> </label>
-                                <input type="text" id="category" name="category" class="form-control" placeholder="Category" minlength="0" maxlength="36" required>
+                                <label for="category" class="col-form-label">Game Category: <span class="text-danger">*</span> </label>
+                                <input type="text" id="category" name="category" class="form-control" placeholder="Game Category" minlength="0" maxlength="36" required>
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -299,8 +299,8 @@
                     </div>
                     <div class="form-group text-center mt-2">
                         <div class="btn-group">
-                            <button type="submit" class="btn btn-success mr-2" id="form-btn"><?= lang("App.save") ?></button>
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><?= lang("App.cancel") ?></button>
+                            <button type="submit" class="btn btn-danger rounded" id="form-btn"><?= lang("App.save") ?></button>
+                            <button type="button" class="btn btn-warning rounded" data-bs-dismiss="modal" style="margin-left:5px"><?= lang("App.cancel") ?></button>
                         </div>
                     </div>
                 </form>
@@ -319,7 +319,7 @@
         if (typeof id_category === 'undefined' || id_category < 1) { //add
             urlController = '<?= base_url($controller . "/add") ?>';
             submitText = '<?= lang("App.save") ?>';
-            $('#model-header').removeClass('bg-info').addClass('bg-success');
+            $('#model-header').removeClass('bg-info').addClass('bg-primary');
             $("#info-header-modalLabel").text('<?= lang("App.add") ?>');
             $("#form-btn").text(submitText);
             $('#data-modal').modal('show');
@@ -335,7 +335,7 @@
                 },
                 dataType: 'json',
                 success: function(response) {
-                    $('#model-header').removeClass('bg-success').addClass('bg-info');
+                    $('#model-header').removeClass('bg-success').addClass('bg-danger');
                     $("#info-header-modalLabel").text('<?= lang("App.edit") ?>');
                     $("#form-btn").text(submitText);
                     $('#data-modal').modal('show');
@@ -373,7 +373,6 @@
                 }
             },
             submitHandler: function(form) {
-
                 var form = $('#data-form')[0];
                 var formData = new FormData(form);
                 $(".text-danger").remove();

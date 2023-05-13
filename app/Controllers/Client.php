@@ -16,12 +16,12 @@ class Client extends BaseController
     }
     public function index()
     {
-        session()->set('game', '');
         $data = [
             'title' => "Home",
             'categories' => $this->categoriesModel->findAll(),
             'voucher' => $this->voucherModel->findAll(),
         ];
+        session()->set('game', '');
         return view('Client/Home', $data);
     }
     public function setSession()
@@ -29,28 +29,32 @@ class Client extends BaseController
         if ($this->request->getPost('id')) {
             $id = $this->request->getPost('id');
             session()->set('game', $id);
-            return redirect()->to(site_url('client/purchase'));
+            $response['success'] = false;
+            $response['messages'] = "No Voucher Found";
+            if (session()->game == $id) {
+                $voucer = $this->voucherModel->where('category', session()->game)->first();
+                if ($voucer) {
+                    $response['success'] = true;
+                    $response['messages'] = "We Voucher Found";
+                }
+            }
+            return $this->response->setJSON($response);
         } else {
             throw new \CodeIgniter\Exceptions\PageNotFoundException();
         }
     }
-    public function purchase()
+    public function selection()
     {
         if (session()->game == NULL | session()->game == "") {
             return redirect()->to(base_url());
         } else {
             $voucer = $this->voucherModel->where('category', session()->game)->findAll();
-            if (count($voucer) < 1) {
-                session()->setFlashdata('errors', "No Voucher Found");
-                return redirect()->to(base_url());
-            } else {
-                $data = [
-                    'title' => "Home",
-                    'category' => $this->categoriesModel->find(session()->game),
-                    'voucer' => $voucer,
-                ];
-                return view('Client/Purchase', $data);
-            }
+            $data = [
+                'title' => "Home",
+                'category' => $this->categoriesModel->find(session()->game),
+                'voucer' => $voucer,
+            ];
+            return view('Client/Purchase', $data);
         }
     }
 }

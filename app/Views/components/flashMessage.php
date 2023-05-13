@@ -4,7 +4,7 @@
     $success = $session->getFlashData('success');
     ?>
 
-   <div class="position-fixed w-100 p-5">
+   <div class="position-absolute w-100 p-5">
        <?php if ($errors != null) : ?>
            <div class="alert alert-danger alert-dismissible fade show" role="alert" style="border-radius: 0 !important;">
                <?php echo $errors  ?>

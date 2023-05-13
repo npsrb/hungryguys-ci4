@@ -112,7 +112,7 @@
             <div class="position-sticky pt-3 sidebar-sticky">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="<?= base_url('admin/dashboard') ?>">
+                        <a class="nav-link" aria-current="page" href="<?= base_url('admin/dashboard') ?>">
                             <span data-feather="home" class="align-text-bottom"></span>
                             Dashboard
                         </a>
@@ -124,7 +124,7 @@
                         </a>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('admin/voucher') ?>">
+                        <a class="nav-link" href="<?= base_url('voucher') ?>">
                             <span data-feather="shopping-cart" class="align-text-bottom"></span>
                             Voucher
                         </a>
@@ -148,7 +148,7 @@
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="row justify-content-between align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <div class="col-lg-6 mt-2">
-                    <h5><?= $page; ?></h5>
+                    <h6><?= $page; ?></h6>
                 </div>
                 <div class="col-lg-6">
                     <button type="button" class="btn btn-danger btn-sm border" onclick="save()" title="New Category" style="float: right;"><i class="fa fa-plus"></i> New Data <?= ucfirst($controller); ?></button>
@@ -208,7 +208,6 @@
             confirmButtonText: '<?= lang("App.confirm") ?>',
             cancelButtonText: '<?= lang("App.cancel") ?>'
         }).then((result) => {
-
             if (result.value) {
                 $.ajax({
                     url: '<?php echo base_url($controller . "/remove") ?>',

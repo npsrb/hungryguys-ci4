@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Controllers\BaseController;
 use App\Models\CategoriesModel;
 use App\Models\VoucherModel;
 
@@ -19,7 +18,16 @@ class Voucher extends BaseController
 		$this->categoriesModel = new CategoriesModel();
 		$this->validation =  \Config\Services::validation();
 	}
-
+	public function index()
+	{
+		$data = [
+			'controller' => "voucher",
+			'category' => $this->categoriesModel->findAll(),
+			'page' => "Voucher Page",
+			'title' => "Voucher Page"
+		];
+		return view('admin/voucher', $data);
+	}
 	public function getAll()
 	{
 		$response = $data['data'] = array();

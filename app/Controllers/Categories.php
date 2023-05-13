@@ -3,19 +3,30 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-
 use App\Models\CategoriesModel;
+use App\Models\VoucherModel;
 
 class Categories extends BaseController
 {
 
 	protected $categoriesModel;
 	protected $validation;
-
+	protected $voucherModel;
 	public function __construct()
 	{
 		$this->categoriesModel = new CategoriesModel();
+		$this->voucherModel = new VoucherModel();
 		$this->validation =  \Config\Services::validation();
+	}
+	public function index()
+	{
+		$data = [
+			'controller' => "categories",
+			'page' => "Game Categories",
+			'title' => "Game Categories",
+
+		];
+		return view('admin/categories', $data);
 	}
 
 	public function getAll()
@@ -142,6 +153,7 @@ class Categories extends BaseController
 			$findRecord = $this->categoriesModel->where('id_category', $id)->first();
 			$image = $findRecord->picture;
 			$filepath = './uploads/' . $image;
+			$deleteVoucher = $this->voucherModel->where('category', $id)->delete();
 			if (file_exists($filepath)) {
 				unlink($filepath);
 				if ($this->categoriesModel->where('id_category', $id)->delete()) {

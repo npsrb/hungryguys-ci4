@@ -103,55 +103,6 @@
         border-bottom-left-radius: 0;
     }
 
-    .form-signin input[type="password"] {
-        margin-bottom: 10px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-    }
-
-
-
-    input[type=submit] {
-        transition: all 0.25s ease, color 1ms;
-        text-align: center;
-    }
-
-    input[type=submit]:focus {
-        outline: 0;
-    }
-
-    input[type=submit].animate {
-        border-radius: 50%;
-        background: transparent;
-        color: transparent;
-        border: 3px solid #337ab7;
-        border-left-color: #ccc;
-        animation: rotating 2s 0.25s linear infinite;
-        animation-delay: 0s;
-        width: 34px;
-        height: 34px;
-    }
-
-    textarea:focus,
-    input[type="text"]:focus,
-    input[type="password"]:focus,
-    input[type="datetime"]:focus,
-    input[type="datetime-local"]:focus,
-    input[type="date"]:focus,
-    input[type="month"]:focus,
-    input[type="time"]:focus,
-    input[type="week"]:focus,
-    input[type="number"]:focus,
-    input[type="email"]:focus,
-    input[type="url"]:focus,
-    input[type="search"]:focus,
-    input[type="tel"]:focus,
-    input[type="color"]:focus,
-    .uneditable-input:focus {
-        border-color: rgba(126, 239, 104, 0.8);
-        box-shadow: 0 1px 1px rgb(255, 0, 0) inset, 0 0 8px rgb(255, 0, 0);
-        outline: 0 none;
-    }
 
 
     @keyframes rotating {
@@ -170,7 +121,7 @@
 <?= $this->include('components/flashMessage'); ?>
 <?= $this->include('components/toggle'); ?>
 
-<div class="text-center login">
+<div class="text-center login bg-dark">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="check2" viewBox="0 0 16 16">
             <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
@@ -200,7 +151,7 @@
                 <label>Password</label>
             </div>
 
-            <div class="checkbox mb-3">
+            <div class="checkbox mb-3 text-danger">
                 <label>
                     <input type="checkbox" value="remember-me"> Remember me
                 </label>

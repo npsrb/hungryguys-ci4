@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-bs-theme="light" lang="en">
+<html data-bs-theme="dark" lang="en">
 
 <head>
     <script src="https://getbootstrap.com/docs/5.3/assets/js/color-modes.js"></script>
@@ -10,9 +10,68 @@
     <meta name="theme-color" content="#712cf9">
     <script src="https://unpkg.com/feather-icons"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+
+    <style>
+        .form-signin input[type="password"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+
+
+        input[type=submit] {
+            transition: all 0.25s ease, color 1ms;
+            text-align: center;
+        }
+
+        input[type=submit]:focus {
+            outline: 0;
+        }
+
+        input[type=submit].animate {
+            border-radius: 50%;
+            background: transparent;
+            color: transparent;
+            border: 3px solid #337ab7;
+            border-left-color: #ccc;
+            animation: rotating 2s 0.25s linear infinite;
+            animation-delay: 0s;
+            width: 34px;
+            height: 34px;
+        }
+
+        textarea:focus,
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="datetime"]:focus,
+        input[type="datetime-local"]:focus,
+        input[type="date"]:focus,
+        input[type="month"]:focus,
+        input[type="time"]:focus,
+        input[type="week"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        input[type="url"]:focus,
+        input[type="search"]:focus,
+        input[type="tel"]:focus,
+        input[type="color"]:focus,
+        .uneditable-input:focus {
+            border-color: rgba(126, 239, 104, 0.8);
+            box-shadow: 0 1px 1px rgb(255, 0, 0) inset, 0 0 8px rgb(255, 0, 0);
+            outline: 0 none;
+        }
+    </style>
     <?= $this->renderSection('style'); ?>
     <title><?= $title; ?></title>
-
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
 </head>
 
 <body>

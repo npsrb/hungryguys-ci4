@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+
 use App\Models\CategoriesModel;
 use App\Models\VoucherModel;
 
@@ -63,7 +64,6 @@ class Admin extends BaseController
         $data = [
             'title' => "Login",
         ];
-        // if not logged in
         if (session()->logged_in == true) {
             return redirect()->to(site_url('admin/dashboard'));
         } else {
@@ -75,26 +75,6 @@ class Admin extends BaseController
         session()->logged_in = false;
         session_destroy();
         return redirect()->to(base_url('admin/login'));
-    }
-    public function voucher()
-    {
-        $data = [
-            'controller' => "voucher",
-            'category' => $this->categoriesModel->findAll(),
-            'page' => "Voucher Page",
-            'title' => "Voucher Page"
-        ];
-        return view('admin/voucher', $data);
-    }
-    public function categories()
-    {
-        $data = [
-            'controller' => "categories",
-            'page' => "Game Categories",
-            'title' => "Game Categories",
-
-        ];
-        return view('admin/categories', $data);
     }
     public function transaction()
     {
