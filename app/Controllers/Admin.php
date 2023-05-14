@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 
 use App\Models\CategoriesModel;
+use App\Models\TransactionModel;
 use App\Models\VoucherModel;
 
 class Admin extends BaseController
@@ -11,11 +12,13 @@ class Admin extends BaseController
     protected $db;
     protected $voucherModel;
     protected $categoriesModel;
+    protected $transactionModel;
     public function __construct()
     {
         $this->db = \Config\Database::connect();
         $this->voucherModel = new VoucherModel();
         $this->categoriesModel = new CategoriesModel();
+        $this->transactionModel = new TransactionModel();
     }
     public function dashboard()
     {
@@ -78,20 +81,40 @@ class Admin extends BaseController
     }
     public function transaction()
     {
+
         $data = [
             'controller' => "Admin",
             'page' => "Transaction",
-            'title' => "Transaction Page"
+            'title' => "Transaction Page",
+            'alltrx' => $this->transactionModel->findAll(),
         ];
+        if (session()->logged_in == false) {
+            return redirect()->to(site_url('admin/login'));
+        }
         return view('admin/transaction', $data);
     }
-    public function report()
+
+    public function getAll()
     {
-        $data = [
-            'controller' => "Report",
-            'page' => "Report",
-            'title' => "Report Page"
-        ];
-        return view('admin/report', $data);
+        $response = $data['data'] = array();
+
+        $result = $this->transactionModel->select()->findAll();
+
+        foreach ($result as $key => $value) {
+
+            $data['data'][$key] = array(
+                $value->id_transaction,
+                $value->email,
+                $value->server_id,
+                $value->user_id,
+                $value->username,
+                $value->amount,
+                $value->status,
+                $value->category,
+
+            );
+        }
+
+        return $this->response->setJSON($data);
     }
 }

@@ -135,12 +135,6 @@
                             Transaction
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('admin/report') ?>">
-                            <span data-feather="bar-chart-2" class="align-text-bottom"></span>
-                            Report
-                        </a>
-                    </li>
                 </ul>
             </div>
         </nav>
@@ -150,7 +144,7 @@
                 <div class="col-lg-6 mt-2">
                     <h6><?= $page; ?></h6>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6" <?= $page == "Transaction" ? "hidden" : ""; ?>>
                     <button type="button" class="btn btn-danger btn-sm border" onclick="save()" title="New Category" style="float: right;"><i class="fa fa-plus"></i> New Data <?= ucfirst($controller); ?></button>
                 </div>
 
