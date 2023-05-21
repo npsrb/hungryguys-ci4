@@ -18,7 +18,12 @@
                     <div class="card">
                         <div id="myCard" class="mycards card-body" data-customData="<?= $a->amount ?>">
                             Rp. <?= number_format($a->amount); ?>
+
+                            <span <?= strlen($a->deskripsi) == 0 ? "hidden" : ""; ?>>
+                                <hr><?= $a->deskripsi ?>
+                            </span>
                         </div>
+
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -52,7 +57,7 @@
                     </div>
                 </div>
             </div>
-            <button type="button" class="btn btn-danger btn-md btn-block mt-3" id="back-btn">Cancel This</button>
+            <button type="button" class="btn btn-danger btn-md btn-block mt-3" id="back-btn">Cancel</button>
             <button type="submit" class="btn btn-primary btn-md btn-block mt-3" id="checkout">Checkout</button>
         </form>
     </div>

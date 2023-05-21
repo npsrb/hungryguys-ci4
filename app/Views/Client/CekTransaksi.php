@@ -15,7 +15,7 @@
                 </div>
             </div>
         </div>
-        <button type="button" class="btn btn-danger btn-md btn-block mt-3" id="back-btn">Cancel This</button>
+        <button type="button" class="btn btn-danger btn-md btn-block mt-3" id="back-btn">Cancel</button>
         <button type="submit" class="btn btn-primary btn-md btn-block mt-3" id="checkout">Check Transaction</button>
     </form>
 </div>

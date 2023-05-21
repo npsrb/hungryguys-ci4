@@ -6,22 +6,18 @@
     }
 </style>
 
-<table class="table table-bordered table-striped mt-3 border-danger">
-    <thead>
-        <tr>
-            <th>Transaction ID</th>
-            <th>Email</th>
-            <th>Amout</th>
-            <th>Status</th>
-        </tr>
-        <tr>
-            <td><?= $result->id_transaction; ?></td>
-            <td><?= $result->email; ?></td>
-            <td><?= $result->amount; ?></td>
-            <td><?= $result->status; ?></td>
-        </tr>
-    </thead>
-</table>
+<card class="card bg-danger text-white">
+    <div class="card-header bg-black">
+        Transaction Status
+    </div>
+    <div class="card-body">
+        <p>Transaction ID: <?= $result->id_transaction; ?></p>
+        <p>Email: <?= $result->email; ?></p>
+        <p>Amount: Rp.<?= number_format($result->amount); ?></p>
+        <p>Status: <?= $result->status; ?></p>
+    </div>
+</card>
+<button type="button" class="btn btn-danger btn-md btn-block mt-3" id="back-btn">Back</button>
 <?= $this->endSection(); ?>
 
 <?= $this->section('script'); ?>

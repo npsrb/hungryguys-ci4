@@ -46,8 +46,6 @@ class Admin extends BaseController
             if (count($result) == 1) {
                 if ($postdata['password'] == $result[0]->password) {
                     $loginData = [
-                        'username'  => 'johndoe',
-                        'email'     => 'johndoe@some-site.com',
                         'logged_in' => true,
                     ];
                     session()->set($loginData);
@@ -81,27 +79,31 @@ class Admin extends BaseController
     }
     public function transaction()
     {
-
+        if (session()->logged_in == false) {
+            return redirect()->to(site_url('admin/login'));
+        }
         $data = [
             'controller' => "Admin",
             'page' => "Transaction",
             'title' => "Transaction Page",
-            'alltrx' => $this->transactionModel->findAll(),
         ];
-        if (session()->logged_in == false) {
-            return redirect()->to(site_url('admin/login'));
-        }
+
         return view('admin/transaction', $data);
     }
 
     public function getAll()
     {
         $response = $data['data'] = array();
-
         $result = $this->transactionModel->select()->findAll();
 
         foreach ($result as $key => $value) {
-
+            $ops = '<div class="btn-group">';
+            $ops .= '<button type="button" class=" btn btn-sm dropdown-toggle btn-danger" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Option</button>';
+            $ops .= '<div class="dropdown-menu">';
+            $ops .= '<a class="dropdown-item text-primary" onClick="approve(' . $value->id_transaction . ')"><i class="fa-solid fa fa-check"></i>  Approve</a>';
+            $ops .= '<a class="dropdown-item text-warning" onClick="reject(' . $value->id_transaction . ')"><i class="fa-solid fa fa-window-close"></i>  Reject</a>';
+            $ops .= '<a class="dropdown-item text-danger" onClick="remove(' . $value->id_transaction . ')"><i class="fa-solid fa fa-trash"></i>   ' .  lang("App.delete")  . '</a>';
+            $ops .= '</div>';
             $data['data'][$key] = array(
                 $value->id_transaction,
                 $value->email,
@@ -111,10 +113,52 @@ class Admin extends BaseController
                 $value->amount,
                 $value->status,
                 $value->category,
-
+                $ops
             );
         }
-
         return $this->response->setJSON($data);
+    }
+    // swapfire 
+    public function approve()
+    {
+        $response = array();
+        $id = $this->request->getPost('params');
+        if ($this->transactionModel->where('id_transaction', $id)->set(['status' => "approved"])->update()) {
+            $response['success'] = true;
+            $response['messages'] = "Transaction Approved";
+        } else {
+            $response['success'] = false;
+            $response['messages'] = "Transaction Approve Failed";
+        }
+        return $this->response->setJSON($response);
+    }
+    public function reject()
+    {
+        $response = array();
+        $id = $this->request->getPost('params');
+        if ($this->transactionModel->where('id_transaction', $id)->set(['status' => "rejected"])->update()) {
+            $response['success'] = true;
+            $response['messages'] = "Transaction Rejected";
+        } else {
+            $response['success'] = false;
+            $response['messages'] = "Transaction Reject Failed";
+        }
+        return $this->response->setJSON($response);
+    }
+    public function remove()
+    {
+        $response = array();
+
+        $id = $this->request->getPost('params');
+
+        if ($this->transactionModel->where('id_transaction', $id)->delete()) {
+            $response['success'] = true;
+            $response['messages'] = lang("App.delete-success");
+        } else {
+            $response['success'] = false;
+            $response['messages'] = lang("App.delete-error");
+        }
+
+        return $this->response->setJSON($response);
     }
 }
