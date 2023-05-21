@@ -29,9 +29,9 @@ class Admin extends BaseController
                 'title' => "Dashboard",
                 'page' => "Dashboard",
                 'controller' => "Categories",
-                'categorytot' => '20',
-                'transaksitot' => '20',
-                'producttot' => '20'
+                'categorytot' => count($this->categoriesModel->findAll()),
+                'transaksitot' => count($this->transactionModel->findAll()),
+                'producttot' => count($this->voucherModel->findAll())
             ];
             return view('Admin/Dashboard', $data);
         }

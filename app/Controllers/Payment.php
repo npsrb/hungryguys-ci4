@@ -27,7 +27,7 @@ class Payment extends BaseController
     {
         $query   = $this->db->query("SELECT * FROM admin where username = 'admin' LIMIT 1");
         $result = $query->getResult();
-        $nomorAdmin = $result[0]->password;
+        $nomorAdmin = $result[0]->contactme;
         if ($this->request->getPost()) {
             $fields['id_transaction'] = random_int(100000, 999999);
             $fields["amount"] = $this->request->getPost("amount");
@@ -38,7 +38,7 @@ class Payment extends BaseController
             $fields['category'] = $this->request->getPost("category");
             $fields['status'] = "pending";
             $this->transactionModel->insert($fields);
-            return redirect()->to("https://wa.me/6281259188983?text=Hallo%20Admin,%20saya%20sudah%20melakukan%20pesanan%20dengan%20detail%20berikut:%0A*Order number:%20" . $fields['id_transaction'] . "*%0A*Amount:%20Rp." . number_format($fields["amount"]) . "*");
+            return redirect()->to("https://wa.me/" . $nomorAdmin . "?text=Hallo%20Admin,%20saya%20sudah%20melakukan%20pesanan%20dengan%20detail%20berikut:%0A*Order number:%20" . $fields['id_transaction'] . "*%0A*Amount:%20Rp." . number_format($fields["amount"]) . "*");
             // midtrans
             // $transaction_params = array(
             //     'transaction_details' => array(

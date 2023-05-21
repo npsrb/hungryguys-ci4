@@ -148,3 +148,18 @@ in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
 11 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
 12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
 13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Programming\\Project\\hungryguys\\public\\index.php')
+INFO - 2023-05-21 12:01:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-21 12:02:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-21 12:02:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-05-21 12:02:15 --> A non-numeric value encountered
+in APPPATH\Controllers\Payment.php on line 41.
+ 1 APPPATH\Controllers\Payment.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric value encountered', 'D:\\Programming\\Project\\hungryguys\\app\\Controllers\\Payment.php', 41, [...])
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Payment->index()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Payment))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Programming\\Project\\hungryguys\\public\\index.php')
+INFO - 2023-05-21 12:24:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-21 12:24:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-21 12:24:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-21 12:24:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
