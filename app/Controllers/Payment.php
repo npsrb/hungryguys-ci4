@@ -29,7 +29,7 @@ class Payment extends BaseController
         $result = $query->getResult();
         $nomorAdmin = $result[0]->password;
         if ($this->request->getPost()) {
-            $fields['id_transaction'] = random_int(1, 2000) . random_int(1, 2000) . random_int(1, 2000) . random_int(1, 2000);
+            $fields['id_transaction'] = random_int(100000, 999999);
             $fields["amount"] = $this->request->getPost("amount");
             $fields["server_id"] = $this->request->getPost("server_id");
             $fields['user_id'] = $this->request->getPost("user_id");
