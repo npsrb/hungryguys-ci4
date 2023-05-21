@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2023 at 06:38 AM
+-- Generation Time: May 21, 2023 at 01:44 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -29,15 +29,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `username` varchar(36) NOT NULL,
-  `password` varchar(36) NOT NULL
+  `password` varchar(36) NOT NULL,
+  `contactme` varchar(36) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`username`, `password`) VALUES
-('admin', 'admin');
+INSERT INTO `admin` (`username`, `password`, `contactme`) VALUES
+('admin', 'admin', '081259188983');
 
 -- --------------------------------------------------------
 
@@ -71,14 +72,23 @@ INSERT INTO `categories` (`id_category`, `category`, `desc`, `option_user_id`, `
 --
 
 CREATE TABLE `transaction` (
-  `id_transaction` int(11) NOT NULL,
-  `id_transaction_voucer` int(11) NOT NULL,
+  `id_transaction` int(36) NOT NULL,
   `email` varchar(36) NOT NULL,
   `server_id` varchar(36) NOT NULL,
   `user_id` varchar(36) NOT NULL,
   `username` varchar(36) NOT NULL,
-  `amount` int(11) NOT NULL
+  `amount` int(11) NOT NULL,
+  `status` varchar(11) NOT NULL,
+  `category` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `transaction`
+--
+
+INSERT INTO `transaction` (`id_transaction`, `email`, `server_id`, `user_id`, `username`, `amount`, `status`, `category`) VALUES
+(980725, 'priskilatheresia99@gmail.com', '123', '123', '', 200000, 'pending', 39),
+(2147483647, 'natanael.pasaribu@indocyber.id', '123123', '123', '', 200000, 'pending', 39);
 
 -- --------------------------------------------------------
 
@@ -99,8 +109,7 @@ CREATE TABLE `voucher` (
 --
 
 INSERT INTO `voucher` (`id_voucher`, `amount`, `category`, `deskripsi`, `status`) VALUES
-(18, 200000, 39, '-', 1),
-(19, 2000000, 39, '-', 1);
+(18, 200000, 39, '500 Diamond', 1);
 
 --
 -- Indexes for dumped tables
@@ -138,13 +147,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_transaction` int(36) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2147483648;
 
 --
 -- AUTO_INCREMENT for table `voucher`
 --
 ALTER TABLE `voucher`
-  MODIFY `id_voucher` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_voucher` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
